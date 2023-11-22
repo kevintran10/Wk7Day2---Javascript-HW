@@ -126,10 +126,11 @@ console.log(distinct(seq))
 //     else:
 //         return (l * 2) + (w * 2)
 
-
+//  Setting up variable values
 let l = 10;
 let w = 15;
 
+// Determining the function
 function areaOrPerimeter(l,w) {
     if (l === w) {
         return l * w
