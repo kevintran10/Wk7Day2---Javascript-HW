@@ -21,21 +21,33 @@ let person3 = {
 }
 
 // create a function
+// refactoring using object.entrie() method    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 function favoriteDish(person3) {
-    for (let food in person3) {
-        if (Array.isArray(person3[food])) {
-            console.log(`${food}: ${person3[food].join(', ')}`);
-        } else if (typeof person3[food] === 'object') {
-            console.log(`${food}:`);
-            for (let valueOfFood in person3[food][0]) {
-                console.log(`  ${valueOfFood}: ${person3[food][0][valueOfFood]}`);
-            }
+    Object.entries(person3).forEach(([foodName, foodStore])); {
+        if (Array.isArray(foodStore)) {
+            console.log(`${foodName}: ${person3[foodStore].join(', ')}`);           
+        } else if (typeof foodStore === 'object') {
+            console.log(`${foodName}:`);
+            Object.entries(foodStore[0]).forEach(([differentFoodName, differentFoodStore])); {
+                console.log(`${differentFoodName}:${differentFoodStore}`);
+            };
         } else {
             console.log(`${food}: ${person3[food]}`);
         }
+    };
+}
+
+favoriteDish(person3);
+
+// REFACTORING!!
+// 
+function favoriteDish(person3) {
+    for (let food in person3) {
+        if (Array.isArray(person3[food])) {
+            console.log(`${food}: ${person3[food].join(', ')}`)
+        }
     }
 }
-favoriteDish(person3);
 
 //display
 
